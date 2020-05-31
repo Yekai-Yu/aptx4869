@@ -1,6 +1,7 @@
 'use strict';
 
-import mongoose from 'mongoose'
+const mongoose = require('mongoose');
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const Schema = mongoose.Schema;
 
@@ -13,8 +14,9 @@ const userSchema = new Schema({
     PostCount: {type: Number, default: 0}
 });
 
-userSchema.index({ID:1});
+userSchema.index({ID: 1});
+userSchema.plugin(AutoIncrement, {inc_field: 'ID', start_seq: 100});
 
 const User = mongoose.model('User', userSchema);
 
-export default User;
+module.exports = User;
