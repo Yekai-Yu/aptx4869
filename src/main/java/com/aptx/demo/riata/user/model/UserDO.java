@@ -1,5 +1,6 @@
 package com.aptx.demo.riata.user.model;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,7 +10,7 @@ import java.util.List;
 public class UserDO {
 
     @Id
-    private String id;
+    private ObjectId id;
 
     private String name;
 
@@ -24,7 +25,23 @@ public class UserDO {
     public UserDO() {
     }
 
-    public UserDO(String id, String name, List<String> preference, float rating, int ratingCount, int postCount) {
+    // first time create a user
+    public UserDO(UserIdentity user) {
+        this.id = user.getId();
+        this.name = user.getName();
+    }
+
+    // update user
+    public UserDO(UserDTO user) {
+        this.id = user.getId();
+        this.name = user.getName();
+        this.preference = user.getPreference();
+        this.rating = user.getRating();
+        this.ratingCount = user.getRatingCount();
+        this.postCount = user.getPostCount();
+    }
+
+    public UserDO(ObjectId id, String name, List<String> preference, float rating, int ratingCount, int postCount) {
         this.id = id;
         this.name = name;
         this.preference = preference;
@@ -33,11 +50,11 @@ public class UserDO {
         this.postCount = postCount;
     }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 

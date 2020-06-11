@@ -1,5 +1,7 @@
 package com.aptx.demo.riata.user.model;
 
+import org.bson.types.ObjectId;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,7 +13,7 @@ import java.util.List;
 public class UserDTO {
 
     @JsonProperty(value = "id")
-    private String id;
+    private ObjectId id;
 
     @JsonProperty(value = "name")
     private String name;
@@ -31,7 +33,7 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    public UserDTO(String id, String name, List<String> preference, float rating, int ratingCount, int postCount) {
+    public UserDTO(ObjectId id, String name, List<String> preference, float rating, int ratingCount, int postCount) {
         this.id = id;
         this.name = name;
         this.preference = preference;
@@ -57,11 +59,11 @@ public class UserDTO {
         this.postCount = user.getPostCount();
     }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 

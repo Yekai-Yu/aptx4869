@@ -1,7 +1,5 @@
 package com.aptx.demo.riata.user.service;
 
-import com.aptx.demo.riata.user.model.UserDTO;
-
 public interface UserManager {
-    public String createUser(UserDTO user);
+    public void createUser(String name, String email, String password);
 }
