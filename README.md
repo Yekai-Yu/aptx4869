@@ -21,3 +21,8 @@ brew services stop mongodb-community@4.2
 ```
 mvn clean package
 ```
+
+## API doc
+```
+http://localhost:8080/swagger-ui.html#/
+```
