@@ -1,4 +1,4 @@
-package com.aptx.demo;
+package com.aptx.demo.riata;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
