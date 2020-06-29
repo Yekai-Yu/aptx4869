@@ -8,53 +8,75 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class UserIdentity {
 
     @Id
-    private ObjectId id;
+    private ObjectId uId;
 
-    private String name;
+    private String uName;
 
-    private String email;
+    private String uEmail;
 
-    private String password;
+    private String uPassword;
+
+    // OAuth "type" or "REGULAR"
+    private String type = UserType.REGULAR.getValue();
+
+    private String uSignature;
 
     public UserIdentity() {
     }
 
-    public UserIdentity(ObjectId id, String name, String email, String password) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
+    public UserIdentity(ObjectId uId, String uName, String uEmail, String uPassword) {
+        this.uId = uId;
+        this.uName = uName;
+        this.uEmail = uEmail;
+        this.uPassword = uPassword;
+        this.uSignature = uId.toString();
     }
 
-    public ObjectId getId() {
-        return id;
+    public ObjectId getUId() {
+        return uId;
     }
 
-    public void setId(ObjectId id) {
-        this.id = id;
+    public void setUId(ObjectId uId) {
+        this.uId = uId;
     }
 
-    public String getName() {
-        return name;
+    public String getUName() {
+        return uName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUName(String uName) {
+        this.uName = uName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUEmail() {
+        return uEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUEmail(String uEmail) {
+        this.uEmail = uEmail;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUPassword() {
+        return uPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUPassword(String uPassword) {
+        this.uPassword = uPassword;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getUSignature() {
+        return uSignature;
+    }
+
+    public void setUSignature(String uSignature) {
+        this.uSignature = uSignature;
     }
 }

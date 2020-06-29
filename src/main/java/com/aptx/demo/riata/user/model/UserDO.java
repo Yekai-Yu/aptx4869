@@ -23,12 +23,13 @@ public class UserDO {
     private int postCount;
 
     public UserDO() {
+
     }
 
     // first time create a user
     public UserDO(UserIdentity user) {
-        this.id = user.getId();
-        this.name = user.getName();
+        this.id = user.getUId();
+        this.name = user.getUName();
     }
 
     // update user

@@ -29,7 +29,11 @@ public class User {
     @JsonProperty(value = "postCount")
     private int postCount;
 
+    @JsonProperty(value = "picture")
+    private String picture;
+
     public User() {
+
     }
 
     public User(UserDTO user) {
@@ -96,5 +100,13 @@ public class User {
 
     public void setPostCount(int postCount) {
         this.postCount = postCount;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 }
